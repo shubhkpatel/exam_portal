@@ -5,3 +5,23 @@ spring initializer ->
 	spring data jpa : to persist the data in database
 
 	mysql driver : access mysql database
+
+
+================================================================
+
+cmd -> idea64 .
+
+================================================================
+
+make the schema in mysql workbench name exam
+
+& Add the configuration in application.properties
+
+	  database url
+	  username
+	  password
+	  driver (optional)
+	  hibernate dialect (orm tool to save java objects in db)
+	  ddl-auto (auto update the table in db for first time)
+	  show sql queries in console
+	  format sql queries

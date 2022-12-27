@@ -1,0 +1,7 @@
+spring initializer ->
+	
+	spring web : for running our server on web
+	
+	spring data jpa : to persist the data in database
+
+	mysql driver : access mysql database

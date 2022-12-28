@@ -53,7 +53,20 @@ Create Entity
 	JoinColumn to name the foreign key
 
 
+================================================================
 
+Repository extends JpaRepository
+
+	which extends CrudRepository & PagingAndSorting
+	and also provides features like batch deletion
+
+================================================================
+
+Implement Service layer (createUser)
+
+and call it in main method
+
+================================================================
 
 
 

@@ -25,3 +25,38 @@ make the schema in mysql workbench name exam
 	  ddl-auto (auto update the table in db for first time)
 	  show sql queries in console
 	  format sql queries
+
+================================================================
+
+Create Entity
+
+	User, Role, UserRole -> add properties and getter/setter
+
+	
+	@Entity    linking this class to table in db
+	@Table 	 renaming the table name in db
+	@Id 		 primary key
+	@GeneratedValue 	automatically generate pk
+
+	
+	//one User will have many UserRole
+	//1 UserRole will have 1 User
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = 	FetchType.EAGER)
+
+	if we delete user then delete the role as well & 
+	if we fetch fetch then get role as well
+
+
+	mappedBy to reference to attribute of owning class as 	foreign key
+
+	JoinColumn to name the foreign key
+
+
+
+
+
+
+
+
+

@@ -71,5 +71,20 @@ and call it in main method
 
 Implement the API class
 
+	For Bean Validation -> use Dto/Entity class (@Valid)
+	For Path Validation -> use API class (@Validated)
+
+	For this add dependency of spring-boot-starter-validation
+
+================================================================
+
+Add centralized Exception Handler in utility so that in response of error, user can get readable messages
+
+================================================================
+
+FRONTEND :
+
+	Create Angular App and Install Angular Material
+
 
 

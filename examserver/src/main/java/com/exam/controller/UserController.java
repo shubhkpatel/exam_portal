@@ -4,6 +4,7 @@ import com.exam.entity.Role;
 import com.exam.entity.User;
 import com.exam.entity.UserRole;
 import com.exam.service.userservice.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/")
-    public ResponseEntity<User> createUser(@RequestBody User user) throws Exception {
+    public ResponseEntity<User> createUser(@RequestBody @Valid User user) throws Exception {
 
         Role role = new Role();
         role.setRoleId(45L);
@@ -50,7 +51,7 @@ public class UserController {
     }
 
     @PutMapping("/{userId}")
-    public ResponseEntity<String> updateUser(@PathVariable("userId") Long userId, @RequestBody User user) throws Exception {
+    public ResponseEntity<String> updateUser(@PathVariable("userId") Long userId, @RequestBody @Valid User user) throws Exception {
         this.userService.updateUser(userId, user);
         return new ResponseEntity<>("User Updated Successfully", HttpStatus.OK);
     }

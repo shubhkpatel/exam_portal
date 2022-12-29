@@ -1,6 +1,7 @@
 package com.exam.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +12,8 @@ public class Role {
 
     @Id
     private Long roleId;
+
+    @Pattern(regexp = "[A-Z]*", message = "It should be in Uppercase")
     private String roleName;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "role")

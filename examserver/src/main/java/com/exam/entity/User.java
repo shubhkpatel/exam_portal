@@ -2,6 +2,7 @@ package com.exam.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,11 +14,30 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @NotEmpty(message = "Username is required")
     private String username;
+
+    @NotNull
+    @Pattern(regexp="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(\\S){0}.{8,20}$",
+             message = "Password should have atleast 1 uppercase, lowercase, digit, special character." +
+                       "Length should be 8 to 20")
     private String password;
+
+    @NotNull
+    @NotEmpty(message = "Username is required")
     private String firstName;
+
+    @NotNull
+    @NotEmpty(message = "Username is required")
     private String lastName;
+
+    @Email(message = "Email is Invalid")
+    @NotNull
     private String email;
+
+    @Size(min = 10, max = 10, message = "Phone Number should have 10 digits")
     private String phone;
     private boolean enabled = true;
     private String profile;

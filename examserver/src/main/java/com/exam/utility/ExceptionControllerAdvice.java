@@ -1,6 +1,6 @@
 package com.exam.utility;
 
-import org.hibernate.exception.ConstraintViolationException;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -35,9 +35,8 @@ public class ExceptionControllerAdvice {
                     .collect(Collectors.joining(", "));
         }else{
             ConstraintViolationException exp1 = (ConstraintViolationException) exp;
-//            errorMsg = exp1.getConstraintViolations().stream().map(x -> x.getMessage())
-//                    .collect(Collectors.joining(", "));
-            errorMsg = exp1.getMessage();
+            errorMsg = exp1.getConstraintViolations().stream().map(x -> x.getMessage())
+                    .collect(Collectors.joining(", "));
         }
 
 

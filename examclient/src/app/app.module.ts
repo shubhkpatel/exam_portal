@@ -10,9 +10,13 @@ import { RegisterComponent } from './pages/register/register.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './services/user.service';
+import { FirstPipe } from './pages/register/first.pipe';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent],
+  declarations: [AppComponent, RegisterComponent, FirstPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,8 +26,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

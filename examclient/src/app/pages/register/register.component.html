@@ -5,9 +5,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3 card">
-        <div class="text-center" style="margin-top: 5px">
+        <div class="text-center">
           <img
-            style="width: 120px; height: 120px"
+            style="width: 100px; height: 100px"
             src="../../../assets/undraw_pic_profile_re_7g2h.svg"
             alt=""
           />
@@ -15,55 +15,161 @@
 
         <h1 class="text-center" style="margin-bottom: 2px">Sign Up</h1>
 
-        <form>
+        <form [formGroup]="userForm" (ngSubmit)="formSubmit()">
           <div class="fields">
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Username</mat-label>
-              <input type="text" matInput placeholder="Enter your username" />
+              <input
+                style="height: 20px"
+                formControlName="username"
+                name="username"
+                type="text"
+                matInput
+                placeholder="Enter your username"
+              />
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-error *ngIf="userForm.get('username')?.hasError('required')"
+                >Username is required.
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Password</mat-label>
               <input
+                style="height: 20px"
+                formControlName="password"
+                name="password"
                 type="password"
                 matInput
                 placeholder="Enter your Password"
               />
               <mat-icon matSuffix> fingerprint </mat-icon>
+
+              <mat-error
+                *ngIf="
+                  (userForm.controls['password'].errors | first) === 'required'
+                "
+                >Password is required.
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  (userForm.controls['password'].errors | first) === 'minlength'
+                "
+                >Password must have atleast 8 characters
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  (userForm.controls['password'].errors | first) === 'maxlength'
+                "
+                >Password must have max 20 characters
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  (userForm.controls['password'].errors | first) ===
+                  'hasUpperCase'
+                "
+                >Password should have at least 1 uppercase character
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  (userForm.controls['password'].errors | first) ===
+                  'hasLowerCase'
+                "
+                >Password should have at least 1 lowercase character
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  (userForm.controls['password'].errors | first) === 'hasNumber'
+                "
+                >Password should have at least 1 digit
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  (userForm.controls['password'].errors | first) ===
+                  'hasSpecialCase'
+                "
+                >Password should have at least 1 special character
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>First Name</mat-label>
-              <input type="text" matInput placeholder="Enter your First Name" />
+              <input
+                style="height: 20px"
+                formControlName="firstName"
+                name="firstName"
+                type="text"
+                matInput
+                placeholder="Enter your First Name"
+              />
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-error *ngIf="userForm.get('firstName')?.hasError('required')"
+                >Firstname Cannot be Empty
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Last Name</mat-label>
-              <input type="text" matInput placeholder="Enter your Last Name" />
+              <input
+                style="height: 20px"
+                formControlName="lastName"
+                name="lastName"
+                type="text"
+                matInput
+                placeholder="Enter your Last Name"
+              />
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-error *ngIf="userForm.get('lastName')?.hasError('required')"
+                >Lastname Cannot be Empty
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Email</mat-label>
-              <input type="email" matInput placeholder="Enter your Email" />
+              <input
+                style="height: 20px"
+                formControlName="email"
+                name="email"
+                type="email"
+                matInput
+                placeholder="Enter your Email"
+              />
               <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="userForm.get('email')?.hasError('required')"
+                >Email is required
+              </mat-error>
+              <mat-error *ngIf="userForm.get('email')?.hasError('email')"
+                >Email is Invalid
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Phone</mat-label>
               <input
+                style="height: 20px"
+                formControlName="phone"
+                name="phone"
                 type="tel"
                 matInput
                 placeholder="Enter your Phone Number"
               />
               <mat-icon matSuffix>phone</mat-icon>
+              <mat-error *ngIf="userForm.get('phone')?.hasError('required')"
+                >Phone is required
+              </mat-error>
+              <mat-error *ngIf="userForm.get('phone')?.hasError('pattern')"
+                >Phone Number should have 10 digits
+              </mat-error>
             </mat-form-field>
           </div>
 
           <div class="container text-center">
-            <button mat-raised-button color="primary" style="width: 75%">
+            <button
+              type="submit"
+              mat-raised-button
+              color="primary"
+              style="width: 75%"
+            >
               Sign Up
             </button>
           </div>

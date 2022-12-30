@@ -86,5 +86,27 @@ FRONTEND :
 
 	Create Angular App and Install Angular Material
 
+================================================================
+
+Start with Register Page -> Design
+
+Used Reactive Form
+
+Import ReactiveFormsModule
+
+ngSubmit to submit and ngModel to bind with .ts 
+
+[formGroup] to link the form
+[formControlName] to link its field
 
 
+To select field error -> userForm.controls['<fieldname>'].errors?.required
+
+
+Created Pipe to show only 1 error at a time
+
+Created Custom Validator for password which returns error obj
+
+================================================================
+
+Service Class for calling the backend api (Import HttpClientModule)

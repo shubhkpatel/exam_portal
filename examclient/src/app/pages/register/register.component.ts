@@ -1,4 +1,3 @@
-import { LowerCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -6,7 +5,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -14,13 +16,13 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  errorMsg = '';
-  successMsg = '';
   userForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -76,10 +78,27 @@ export class RegisterComponent implements OnInit {
   formSubmit() {
     this.userService.addUser(this.userForm.value).subscribe(
       (res) => {
-        console.log(res);
+        Swal.fire({
+          title: 'Success',
+          text: 'You have successfully registered!',
+          icon: 'success',
+          confirmButtonText: "Let's Go",
+        }).then(() => {
+          this.router.navigate(['/login']);
+        });
       },
       (err) => {
         console.log(err);
+
+        let message = '';
+
+        if (err.statusText == 'Unknown Error') {
+          message = 'Internal Server Error. Try Again Later!';
+        } else if (err?.error?.errorMessage?.includes('User')) {
+          message = err.error.errorMessage + '. Try different Username!';
+        }
+
+        this._snackBar.open(message, 'Dismiss', { duration: 3000 });
       }
     );
   }

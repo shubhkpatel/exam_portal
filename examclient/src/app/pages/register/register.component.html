@@ -165,6 +165,7 @@
 
           <div class="container text-center">
             <button
+              [disabled]="userForm.invalid"
               type="submit"
               mat-raised-button
               color="primary"

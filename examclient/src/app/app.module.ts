@@ -14,9 +14,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { FirstPipe } from './pages/register/first.pipe';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, FirstPipe],
+  declarations: [AppComponent, RegisterComponent, FirstPipe, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,6 +30,7 @@ import { FirstPipe } from './pages/register/first.pipe';
     MatIconModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent],

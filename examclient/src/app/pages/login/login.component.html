@@ -1,1 +1,73 @@
-<p>login works!</p>
+<div
+  class="bootstrap-wrapper"
+  style="background-color: whitesmoke; height: 100vh"
+>
+  <div class="container">
+    <div class="row">
+      <div class="card">
+        <div class="text-center">
+          <img
+            style="width: 100px; height: 100px"
+            src="../../../assets/undraw_pic_profile_re_7g2h.svg"
+            alt=""
+          />
+        </div>
+
+        <h1 class="text-center" style="margin-bottom: 2px">Sign Up</h1>
+
+        <form [formGroup]="userForm" (ngSubmit)="formSubmit()">
+          <div class="fields">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input
+                style="height: 20px"
+                formControlName="username"
+                name="username"
+                type="text"
+                matInput
+                placeholder="Enter your username"
+              />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-error *ngIf="userForm.get('username')?.hasError('required')"
+                >Username is required.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                style="height: 20px"
+                formControlName="password"
+                name="password"
+                type="password"
+                matInput
+                placeholder="Enter your Password"
+              />
+              <mat-icon matSuffix> fingerprint </mat-icon>
+
+              <mat-error *ngIf="userForm.get('password')?.hasError('required')"
+                >Password is required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="container text-center">
+            <button
+              [disabled]="userForm.invalid"
+              type="submit"
+              mat-raised-button
+              color="primary"
+              style="width: 75%"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+
+        <div class="redirect">
+          New User ? <a class="newuser" routerLink="/register"> Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

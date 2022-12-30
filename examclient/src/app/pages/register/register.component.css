@@ -21,4 +21,11 @@
   padding: 15px;
   
   background-image: linear-gradient(to right, rgb(248, 246, 246) , rgb(249, 248, 248));
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 30px;
+  left: 30px;
 }

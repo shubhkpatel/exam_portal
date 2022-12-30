@@ -102,4 +102,8 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
+
+  goback() {
+    this.router.navigate(['/login']);
+  }
 }

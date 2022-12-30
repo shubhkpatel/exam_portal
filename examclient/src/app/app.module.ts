@@ -16,9 +16,10 @@ import { UserService } from './services/user.service';
 import { FirstPipe } from './pages/register/first.pipe';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, FirstPipe, LoginComponent],
+  declarations: [AppComponent, RegisterComponent, FirstPipe, LoginComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

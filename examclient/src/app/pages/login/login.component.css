@@ -1,0 +1,47 @@
+.full-width {
+  width: 70%;
+  height: 45px;
+  margin-bottom: 32px;
+}
+
+.fields {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.card {
+  background-color: white;
+  margin-top: 5px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 2px 1px rgba(101, 99, 99, 0.2);
+  padding: 15px;
+
+  background-image: linear-gradient(
+    to right,
+    rgb(248, 246, 246),
+    rgb(249, 248, 248)
+  );
+  width: 400px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+.redirect { 
+  padding-left: 55px;
+}
+
+.newuser {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 15px;
+}

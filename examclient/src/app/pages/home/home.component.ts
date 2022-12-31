@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 const Typewriter = require('t-writer.js');
 
 @Component({
@@ -6,27 +7,17 @@ const Typewriter = require('t-writer.js');
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
   @ViewChild('line1') typewriterElement: any;
   @ViewChild('line2') typewriterElement2: any;
   @ViewChild('line3') typewriterElement3: any;
 
-  ngOnInit() {
-    let target1 = '';
-    let target2 = '';
-    let target3 = '';
-    target1 =
-      this.typewriterElement === undefined
-        ? document.querySelector('.line1')
-        : this.typewriterElement.nativeElement;
-    target2 =
-      this.typewriterElement2 === undefined
-        ? document.querySelector('.line2')
-        : this.typewriterElement2.nativeElement;
-    target3 =
-      this.typewriterElement3 === undefined
-        ? document.querySelector('.line3')
-        : this.typewriterElement3.nativeElement;
+  constructor(private router: Router) {}
+
+  ngAfterViewInit() {
+    const target1 = this.typewriterElement.nativeElement;
+    const target2 = this.typewriterElement2.nativeElement;
+    const target3 = this.typewriterElement3.nativeElement;
 
     const writer1 = new Typewriter(target1, {
       typeSpeed: 150,
@@ -82,7 +73,7 @@ export class HomeComponent implements OnInit {
       .rest(1500)
       .addCursor()
       .changeTypeColor('#ef4444')
-      .type('The')
+      .type('the')
       .removeCursor()
       .then(writer3.start.bind(writer3))
       .rest(1600)
@@ -120,5 +111,13 @@ export class HomeComponent implements OnInit {
       .rest(500)
       .clear()
       .removeCursor();
+  }
+
+  goToSignIn() {
+    this.router.navigate(['/login']);
+  }
+
+  goToSignUp() {
+    this.router.navigate(['/register']);
   }
 }

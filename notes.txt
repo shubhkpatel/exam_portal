@@ -117,6 +117,18 @@ Check SweetAlert and MatSnackBar (5-6 lines of code) for nice popups
 
 ================================================================
 
+@ViewChild is used to select the DOM element
+
+eg : <h1 #sel > </h1>
+
+	@ViewChild('sel') myTag;
+	
+	const target = this.myTag.nativeElement;
+
+	Now target is pointing to h1
+
+================================================================
+
 T-writer.js for typewriter effect 
 	
 	-> It provides apis for typing specific words, changing 	   color, pausing and going to next word typing

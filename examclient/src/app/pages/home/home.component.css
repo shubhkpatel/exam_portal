@@ -31,3 +31,90 @@
   font-weight: 500;
   font-family: monospace;
 }
+
+.btn {
+  background-color: #f8fafc;
+  border: none;
+  padding: 10px;
+
+  font-family: monospace;
+  font-weight: 500;
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -5px;
+  background-color: black;
+  height: 2px;
+  width: 0%;
+  transition: 0.3s;
+}
+
+.btn:hover::after {
+  width: 100%;
+}
+
+.in {
+  position: absolute;
+  top: 20px;
+  right: 150px;
+}
+
+.up {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .banner {
+    margin-left: 0px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    height: 300px;
+  }
+
+  .words {
+    font-size: 40px;
+    font-weight: 500;
+    font-family: monospace;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 970px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .banner {
+    margin-left: 0px;
+    margin-top: 130px;
+    margin-bottom: 50px;
+    height: 500px;
+  }
+
+  .words {
+    margin-bottom: 60px;
+    font-size: 70px;
+    font-weight: 500;
+    font-family: monospace;
+  }
+
+  .btn {
+    font-weight: 500;
+    font-size: 26px;
+  }
+
+  .in {
+    margin-right: 10px;
+  }
+}

@@ -110,3 +110,15 @@ Created Custom Validator for password which returns error obj
 ================================================================
 
 Service Class for calling the backend api (Import HttpClientModule)
+
+================================================================
+
+Check SweetAlert and MatSnackBar (5-6 lines of code) for nice popups
+
+================================================================
+
+T-writer.js for typewriter effect 
+	
+	-> It provides apis for typing specific words, changing 	   color, pausing and going to next word typing
+
+================================================================
